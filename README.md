@@ -9,7 +9,5 @@ A keyboard-triggered Agentic AI system that helps detect potential scams on your
 - 🔤 OCR with Tesseract to extract visible text
 - 🧠 Scam analysis using OpenAI's gpt-4o-mini Vision API
 - 🖱️ Triggered via keyboard shortcut (`CTRL + SHIFT + S`)
-- 🧰 No GUI required (but you can add one later)
-- 📋 Clean Python project structure with .env support
 
 ---
