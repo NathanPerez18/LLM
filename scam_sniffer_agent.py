@@ -8,14 +8,14 @@ from PIL import Image
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# 🔐 Load .env and OpenAI API key
+# Load .env and OpenAI API key
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# 🛠️ Tesseract config (adjust if needed on Windows)
+# Tesseract config (adjust if needed on Windows)
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-# 📁 Directory to save screenshots
+# Directory to save screenshots
 SAVE_DIR = "captured_screens"
 
 def ensure_save_dir():
@@ -28,24 +28,24 @@ def take_screenshot():
     filename = f"screenshot_{timestamp}.png"
     full_path = os.path.join(SAVE_DIR, filename)
 
-    print("📸 Capturing screenshot in 2 seconds...")
+    print(" Capturing screenshot in 2 seconds...")
     time.sleep(2)
     screenshot = pyautogui.screenshot()
     screenshot.save(full_path)
-    print(f"✅ Screenshot saved as {full_path}")
+    print(f" Screenshot saved as {full_path}")
     return full_path
 
 def run_ocr(image_path):
-    print("🔍 Running OCR...")
+    print(" Running OCR...")
     text = pytesseract.image_to_string(Image.open(image_path))
-    print("🧠 OCR Result:")
+    print(" OCR Result:")
     print("--------------------------------------------------")
     print(text.strip())
     print("--------------------------------------------------")
     return text
 
 def analyze_text_with_gpt(user_text):
-    print("🤖 Sending to GPT for scam analysis...")
+    print(" Sending to GPT for scam analysis...")
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -64,7 +64,7 @@ def capture_analyze_display():
 
     if extracted_text.strip():
         analysis = analyze_text_with_gpt(extracted_text)
-        print("\n🧠 GPT Scam Analysis:")
+        print("\n GPT Scam Analysis:")
         print("--------------------------------------------------")
         print(analysis)
         print("--------------------------------------------------")
