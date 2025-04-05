@@ -69,7 +69,7 @@ def capture_analyze_display():
         print(analysis)
         print("--------------------------------------------------")
     else:
-        print("⚠️ No text was detected in the screenshot. Try again with a clearer image.")
+        print("No text was detected in the screenshot. Try again with a clearer image.")
 
 def main():
     print("Scam Sniffer is running!")
