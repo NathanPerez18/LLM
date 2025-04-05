@@ -72,9 +72,9 @@ def capture_analyze_display():
         print("⚠️ No text was detected in the screenshot. Try again with a clearer image.")
 
 def main():
-    print("🟢 Scam Sniffer is running!")
-    print("📸 Press CTRL + SHIFT + / to scan your screen.")
-    print("🔴 Press ESC to exit.")
+    print("Scam Sniffer is running!")
+    print("Press CTRL + SHIFT + / to scan your screen.")
+    print("Press ESC to exit.")
 
     keyboard.add_hotkey('ctrl+shift+/', capture_analyze_display)
     keyboard.wait('esc')
